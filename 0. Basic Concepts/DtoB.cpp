@@ -4,7 +4,6 @@ using namespace std;
 
 int decimalToBinary(int n) {
     int number = 0;  
-
     int i = 0;       
 
     while (n != 0) {
