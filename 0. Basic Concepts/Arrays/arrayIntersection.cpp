@@ -47,7 +47,7 @@ int main() {
 
     int i= 0,j = 0;
 
-    // OPTIMIZED SOLUTION - 2 POINTER APPROACH  
+    // OPTIMIZED SOLUTION - 2 POINTER APPROACH   
     while(i < n && j < m){
         if(arr1[i] == arr2[j]){
             res.push_back(arr1[i]);
@@ -60,13 +60,11 @@ int main() {
             j++;
         }
     }
-
     for (int k = 0; k < res.size(); k++) {
         cout << res[k] << " ";
     }
     if (res.empty()) {
         return -1;
     }
-
     return 0;
 }
