@@ -5,7 +5,6 @@ using namespace std;
 bool isPossible(vector<int> arr, int n, int m, int mid) {
     int studentCount = 1;
     int pageSum = 0;
-    //cout << "checking for mid "<< mid <<endl;
     
     for(int i = 0; i<n; i++) {
         if(pageSum + arr[i] <= mid) {
