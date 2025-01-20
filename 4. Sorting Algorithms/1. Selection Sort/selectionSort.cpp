@@ -1,4 +1,8 @@
-#include <bits/stdc++.h> 
+#include <iostream>
+#include <vector>
+#include <bits/stdc++.h>
+using namespace std;
+
 void selectionSort(vector<int>& arr, int n){
     
     for(int i = 0; i < n; i++){
