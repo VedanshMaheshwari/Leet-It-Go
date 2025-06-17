@@ -21,7 +21,7 @@ int binarySearch(int arr[], int size, int key){
         else if (key < arr[mid]){
             end = mid - 1;
         }
-
+        
         mid = start + (end - start)/2;
     }  
     return -1;
@@ -42,3 +42,15 @@ int main(){
     int index = binarySearch(array, num, 297);
     cout << "The index of the key is: " << index;
 }
+
+int binarySearch(int arr[], int size, int num){
+    
+    int start = 0;
+    int end = size;
+
+    int middle = (start + end)/2;
+
+    
+}
+
+
