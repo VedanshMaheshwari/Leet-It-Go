@@ -39,11 +39,11 @@ using namespace std;
         int mid = start + (end - start)/2;
         while(start < end){
             
-            if(nums[mid] >= nums[0]){
-                start = mid + 1;
+            if(nums[mid] < nums[end]){
+                end = mid;
             }
             else{
-                end = mid;
+                start = mid + 1;
             }
             mid = start + (end - start)/2;
         }
