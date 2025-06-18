@@ -33,56 +33,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int getPivot(vector<int>& arr, int n){
+    int getPivot(vector<int>& nums){
+        int start = 0;
+        int end = nums.size() - 1;
+        int mid = start + (end - start)/2;
+        while(start < end){
+            
+            if(nums[mid] >= nums[0]){
+                start = mid + 1;
+            }
+            else{
+                end = mid;
+            }
+            mid = start + (end - start)/2;
+        }
+        return start;
+    }
 
-    int start = 0;
-    int end = arr.size() - 1;
-    int mid = start + (end - start)/2;
-    while(start < end){
-        if(arr[mid] >= arr [0]){
-            start = mid + 1;
+    int binarySearch(vector<int>& nums,int startingElement, int endElement, int target){
+        int start = startingElement;
+        int end = endElement;
+        int mid = start + (end - start)/2;
+        
+        while(start <= end){
+            
+            if(nums[mid] == target){
+                return mid;
+            }
+            else if(nums[mid] < target){
+                start = mid + 1;
+            } 
+            else if(nums[mid] > target){
+                end = mid - 1;
+            }
+             mid = start + (end - start)/2;
+        }
+        return -1;
+    }
+
+    int search(vector<int>& nums, int target) {
+        int pivotElement = getPivot(nums);
+        if(target >= nums[pivotElement] && target <= nums[nums.size()-1]){
+            return binarySearch(nums, pivotElement, nums.size()-1, target);
         }
         else{
-            end = mid;
+            return binarySearch(nums, 0 , pivotElement - 1, target);
         }
-        mid = start + (end - start)/2;
     }
-    return start;
-}
-
-int binarySearch(vector<int>& arr,int s,int e, int key){
-
-    int start = s;
-    int end = e;
-    int mid = start + (end - start)/2;
-
-    while(start <= end){
-
-        if(arr[mid] == key){
-            return mid;
-        }
-
-        else if (key > arr[mid] ){
-            start = mid + 1;
-        }
-
-        else if (key < arr[mid]){
-            end = mid - 1;
-        }
-
-        mid = start + (end - start)/2;
-    }  
-    return -1;
-}
-int search(vector<int>& nums, int target) {
-    int pivot = getPivot(nums,nums.size()-1);
-    if(target >= nums[pivot] && target <= nums[nums.size()-1]){
-        return binarySearch(nums, pivot, nums.size()-1, target);
-    }
-    else{
-        return binarySearch(nums, 0 , pivot - 1, target);
-    }    
-}
 
 
 int main(){
