@@ -18,7 +18,7 @@
     }
 
 
-        long long countPairs(vector<int>& A, vector<int>& B, long long x) {
+    long long countPairs(vector<int>& A, vector<int>& B, long long x) {
         long long count = 0;
         int n = B.size();
 
