@@ -19,23 +19,19 @@ void insertionSort(int n, vector<int> &arr){
 }
 
 void insertionSort(int n, vector<int> &arr){
-
-    int i = 1;
-
+    int i = 0;
     while(i < n){
-
-        int j = i - 1;
+        int j = i-1;
         int temp = arr[i];
-        while(j >= 0){
-            if(arr[j] > temp){
+        while(j>=0){   
+            if(temp < arr[j]){
                 arr[j+1] = arr[j];
-            }
-            else{
+                j--;
+            }else{
                 break;
             }
-            j--;
         }
-        arr[j+1] = temp;
         i++;
+        arr[j+1] = temp;
     }
 }
