@@ -1,13 +1,9 @@
 #include <iostream>
+#include<vector>
 using namespace std;
 
 int main(){
+    vector<int> a  = {1,2,3,4};
 
-    int a = 10, b = 1;
-    if(++a){
-        cout << b;
-    }
-    else{
-        cout << ++b;
-    }
+    cout<< a.size() ;
 }
