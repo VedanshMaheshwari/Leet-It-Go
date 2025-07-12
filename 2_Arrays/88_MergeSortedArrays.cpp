@@ -1,7 +1,7 @@
-    #include<iostream>;
-    #include<vector>;
-    #include<algorithm>;
-    using namespace std;
+#include<iostream>;
+#include<vector>;
+#include<algorithm>;
+using namespace std;
 
 
  // 2 POINTERS APPROACH    
