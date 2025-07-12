@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 
@@ -10,6 +11,11 @@ void reverseArray(int array[],int size){
             array[i] = array[size-1-i];
             array[size-1-i] = temp;
         }
+}
+
+// For vector, reverse after index m
+void reverseArrayatM(vector<int> &arr, int m) {
+    // reverse(arr.begin() + m + 1, arr.end());
 }
 
 void reverse(int array[], int size){
@@ -45,3 +51,4 @@ int main(){
     
 
 }
+
