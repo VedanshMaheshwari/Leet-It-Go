@@ -7,6 +7,7 @@ string replaceSpaces(string &str){
 	for(int i =0; i < str.length(); i++){
 		if(str[i] != ' '){
 			temp.push_back(str[i]);
+          
 		}
 		else{
 			temp.push_back('@');
