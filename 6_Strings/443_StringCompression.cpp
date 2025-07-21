@@ -41,4 +41,37 @@ public:
         chars = ans;
         return chars.size();
     }
+
+//INPLACE O(1):
+
+        int compress(vector<char>& chars) {
+        int n = chars.size();
+        int write = 0; // Position to write compressed characters
+        int i = 0;     // Read pointer
+
+        while (i < n) {
+            int j = i;
+            // Count the group of identical characters
+            while (j < n && chars[j] == chars[i]) {
+                j++;
+            }
+
+            // Write the current character
+            chars[write++] = chars[i];
+
+            // Write the count (if > 1)
+            int count = j - i;
+            if (count > 1) {
+                string cnt = to_string(count);
+                for (char c : cnt) {
+                    chars[write++] = c;
+                }
+            }
+
+            // Move to the next group
+            i = j;
+        }
+
+        return write;  // The new length of the compressed array
+    }
 };
