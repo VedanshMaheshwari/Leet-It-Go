@@ -24,4 +24,18 @@ public:
     reverse(result.begin(), result.end());
     return result;
     }
+
+    string removeDuplicates(string s) {
+    string result = "";
+    
+        for (char c : s) {
+            if (!result.empty() && result.back() == c) {
+                result.pop_back();  // Remove last character
+            } else {
+                result.push_back(c);  // Add new character
+            }
+        }
+
+        return result;
+    }
 };
