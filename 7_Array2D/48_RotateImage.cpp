@@ -22,3 +22,22 @@ public:
 
     }
 };
+
+class Solution {
+public:
+void transpose(vector<vector<int>>& matrix){
+    for (int rowIndex = 0; rowIndex < matrix.size(); rowIndex++) {
+        for (int colIndex = rowIndex + 1; colIndex < matrix[0].size(); colIndex++) {
+            swap(matrix[rowIndex][colIndex], matrix[colIndex][rowIndex]); 
+        }
+    }
+}
+
+    void rotate(vector<vector<int>>& matrix) {
+        
+        transpose(matrix);
+        for(int i = 0; i < matrix.size(); i++){
+            reverse(matrix[i].begin(), matrix[i].end());
+        }
+    }
+};
