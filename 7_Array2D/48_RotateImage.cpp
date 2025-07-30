@@ -20,7 +20,6 @@ public:
             }
         }
         matrix = answer;
-
     }
 };
 
@@ -33,6 +32,29 @@ void transpose(vector<vector<int>>& matrix){
         }
     }
 }
+
+    void rotate(vector<vector<int>>& matrix) {
+        
+        transpose(matrix);
+        for(int i = 0; i < matrix.size(); i++){
+            reverse(matrix[i].begin(), matrix[i].end());
+        }
+    }
+};
+
+
+class Solution {
+public:
+void transpose(vector<vector<int>>& matrix){
+    for (int rowIndex = 0; rowIndex < matrix.size(); rowIndex++) {
+        for (int colIndex = 0; colIndex < matrix[0].size(); colIndex++) {
+            if (rowIndex < colIndex) {
+                swap(matrix[rowIndex][colIndex], matrix[colIndex][rowIndex]); 
+            }
+        }
+    }
+}
+
 
     void rotate(vector<vector<int>>& matrix) {
         
