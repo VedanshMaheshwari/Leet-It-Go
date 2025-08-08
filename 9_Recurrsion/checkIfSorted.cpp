@@ -14,10 +14,18 @@ bool isSorted(int *array, int size){
 
 }
 
+int sumArray(int *array, int size){
+    if (size == 0) return 0;
+    if (size == 1) return array[0];
+    int ans = array[0] + sumArray(array+1,size-1);
+    return ans; 
+}
+
 int main(){
-    int array [] = {1,2,4,5};
+    int array [] = {3,2,5,1,6};
     
-    bool answer = isSorted(array, 4);
+    int answer = sumArray(array, 5);
+
 
     cout <<  answer ;
 }
