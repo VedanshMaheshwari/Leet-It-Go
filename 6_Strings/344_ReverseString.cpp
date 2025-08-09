@@ -17,6 +17,18 @@ public:
     }
 };
 
-int main(){
+class Solution {
+public:
 
-}
+    void reverse(vector<char>& s,int i, int j){
+        if(i>j){
+            return;
+        }
+        swap(s[i] , s[j]);
+        return reverse(s,++i,--j);
+    }
+
+    void reverseString(vector<char>& s) {
+        return reverse(s,0,s.size()-1);
+    }
+};
