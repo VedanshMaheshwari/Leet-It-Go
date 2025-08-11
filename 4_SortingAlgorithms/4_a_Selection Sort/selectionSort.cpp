@@ -18,3 +18,4 @@ void selectionSort(vector<int>& arr, int n){
         // arr[minIndex] = t;
     }
 }
+
