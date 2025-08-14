@@ -18,7 +18,7 @@ public:
         }
     }
     
-    vector<vector<int>> permute(vector<int>& nums) {
+    vector <vector<int>> permute(vector<int>& nums) {
         vector<vector<int>> answer;
         int index = 0;
         solve(nums, answer, index);

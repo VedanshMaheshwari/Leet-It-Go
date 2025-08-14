@@ -6,7 +6,7 @@ class Solution {
 public:
     
     void solve(vector<int> nums, vector<vector<int>>& answer, int index){
-        //base case
+      
         if(index >= nums.size()){
             answer.push_back(nums);
             return;
