@@ -16,8 +16,15 @@ public:
         string mappedValue = map[number];
         for(int i = 0; i < mappedValue.length(); i++){
             output.push_back(mappedValue[i]);
-            solve(digits,answer,output,map,index+1);
+
             output.pop_back();
+            // Option 1: use a new string for recursion, no need to backtrack
+            solve(digits,answer,output + mappedValue[i],map,index+1);
+            
+            // Option 2: modify output and backtrack
+            // output.push_back(s[i]);
+            // solve(digits, index+1, ans, output, mapping);
+            // output.pop_back();
         }
     }
 
