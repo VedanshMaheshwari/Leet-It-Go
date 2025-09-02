@@ -18,7 +18,8 @@ public:
                 if(grid[i][j] == 2){
                     q.push({{i,j},0});
                     visited[i][j] =  2;
-                }else{
+                }
+                else{
                     visited[i][j] = 0;
                 }
             }
