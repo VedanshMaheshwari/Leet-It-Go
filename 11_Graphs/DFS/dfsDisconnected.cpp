@@ -2,9 +2,11 @@
 #include<queue>
 #include<iostream>
 #include<vector>
+#include<list>
+
+
 using namespace std;
-void dfs(int node, unordered_map<int,bool>&visited, unordered_map<int,list<int>>&adj
-,vector<int>&component){
+void dfs(int node, unordered_map<int,bool>&visited, unordered_map<int,list<int>>&adj, vector<int>&component){
 
     component.push_back(node);
     visited[node]= true;
