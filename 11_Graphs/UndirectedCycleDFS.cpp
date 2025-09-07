@@ -13,7 +13,7 @@ bool dfsCycle(unordered_map<int, list<int>>&adj,int node,unordered_map<int, bool
 
     for(auto i: adj[node]){
         if(visi[i] && i != parent[i]){
-            return true;
+            return true;    
         }else{
             dfsCycle(adj, i ,visi);
         }
