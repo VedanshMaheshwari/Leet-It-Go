@@ -37,7 +37,7 @@ int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {
   }
 
   unordered_map<int,bool>visi;
-  unordered_map<int,bool>dfsVisi;
+  unordered_map<int,bool>dfsVisi; 
 
   for(int i=0; i < n; i++){
     if(!visi[i]){
