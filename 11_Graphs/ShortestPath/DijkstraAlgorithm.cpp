@@ -71,6 +71,7 @@ public:
                 if(dist[adjNode] > NodeDist + weighN) {
                     // erase old record if it existed
                     auto it = st.find({dist[adjNode], adjNode});
+                    
                     if(it != st.end()) {
                         st.erase(it);
                     }
