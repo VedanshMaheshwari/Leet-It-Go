@@ -44,9 +44,7 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
                 st.insert({distance[neigh.second], neigh.second});   
             }
         }
-        
     }
-
     return distance;
 }
 
