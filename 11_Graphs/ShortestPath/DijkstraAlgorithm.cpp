@@ -50,3 +50,39 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
     return distance;
 }
 
+
+class Solution {
+public:
+    vector<int> dijkstra(int V, vector<vector<int>> adj[], int S) {
+        // Min-heap behavior using set: {distance, node}
+        set<pair<int,int>> st;
+        vector<int> dist(V, 1e9); // use large int value
+        dist[S] = 0;
+        st.insert({0, S});
+
+        while(!st.empty()) {
+            auto top = *(st.begin());
+            int NodeDist = top.first;
+            int Node = top.second;
+            st.erase(st.begin()); // erase first element
+
+            for(auto neighbour : adj[Node]) {
+                int adjNode = neighbour[0];
+                int weighN = neighbour[1];
+
+                if(dist[adjNode] > NodeDist + weighN) {
+                    // erase old record if it existed
+                    auto it = st.find({dist[adjNode], adjNode});
+                    if(it != st.end()) {
+                        st.erase(it);
+                    }
+
+                    dist[adjNode] = NodeDist + weighN;
+                    st.insert({dist[adjNode], adjNode});
+                }
+            }
+        }
+
+        return dist;
+    }
+};
