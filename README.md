@@ -1,8 +1,7 @@
 # 🧠 Leet-It-Go
 
-A structured **Data Structures & Algorithms (DSA)** repository by me obv, organized **topic-wise** with concept explanations and **LeetCode practice problems**.  
-This repo is designed to help you understand DSA fundamentals, apply them in problem-solving, and strengthen your coding interview preparation.
-
+A **Data Structures & Algorithms (DSA)** repository by me obv, organized **topic-wise** with concept explanations and **LeetCode practice problems**.
+To keep a track of my progress! Let's C how this goes.
 ---
 
 ## 📚 Repository Overview
@@ -33,6 +32,8 @@ The repository covers **all major DSA topics**, each with:
 
 ---
 
+Just go through it I hope its useful in some way! 
+
 ## 🚀 Example Topics Covered
 
 - **Prim’s Algorithm** for Minimum Spanning Tree  
@@ -42,11 +43,3 @@ The repository covers **all major DSA topics**, each with:
 - **String processing & hashing**  
 - **Graph algorithms** using adjacency lists  
 - **LeetCode problems** linked to each topic  
-
----
-
-## 💡 How to Use
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/<your-username>/Leet-It-Go.git
