@@ -32,7 +32,7 @@ string cycleDetection (vector<vector<int>>& edges, int n, int m)
         int v = edges[i][0];
         int u = edges[i][1];
 
-        adj[v].push_back(u);
+        adj[v].push_back(u);    
         adj[u].push_back(v);
     }
 

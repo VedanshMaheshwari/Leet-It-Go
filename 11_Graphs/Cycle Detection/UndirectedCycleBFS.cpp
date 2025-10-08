@@ -18,7 +18,7 @@ bool isCycleBFS(int node, unordered_map<int,bool>&visited, unordered_map<int,lis
         q.pop();
 
         for(auto neighbour : adj[front]){
-            if(visited[neighbour] && neighbour != parent[front]){
+            if(visited[neighbour] == true && neighbour != parent[front]){
                 return true; // found cycle
             }
             else if(!visited[neighbour]){
