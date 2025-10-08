@@ -1,4 +1,4 @@
-# 🧠 Leet-It-Go
+# Leet-It-Go 
 
 A **Data Structures & Algorithms (DSA)** repository by me obv, organized **topic-wise** with concept explanations and **LeetCode practice problems**.
 To keep a track of my progress! Let's C how this goes.
