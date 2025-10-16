@@ -10,6 +10,13 @@ class node{
         this->data = data;
         this->next = NULL;
     }
+
+    ~node(){
+        if(this->next != NULL){
+            delete next;
+            this->next = NULL;
+        }
+    }
 };
 
 void insertAtHead(node* &head, int data){
@@ -55,7 +62,32 @@ void insertAtPosition(node* &head, node* &tail, int position, int data){
 
 // Delete node
 void deleteNode(int position, node* &head, node* &tail){
-        
+    if(position == 1){
+        node *temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else{
+        node *curr = head;
+        node *prev = NULL;
+
+        int count = 1;
+        while(count < position){
+            prev = curr;
+            curr = curr->next;
+            count++;
+        }
+
+        if(curr->next == NULL){
+            tail = prev;
+        }
+
+        prev -> next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+
 }
 
 //traverse
@@ -64,7 +96,7 @@ void print(node * &head){
 
     while(temp != NULL){
         cout << temp->data << " ";
-         temp = temp->next;
+        temp = temp->next;
     }
 }
 
@@ -81,6 +113,8 @@ int main (){
     insertAtHead(head , -1);
     insertAtTail(tail , 2);
     insertAtTail(tail , 3);
+    deleteNode(1,head,tail);
+    deleteNode(4,head,tail);
     print(head);
 
 
