@@ -84,7 +84,7 @@ using namespace std;
 
 int main(){
 
-     vector <int> array ={7,19,1,2,3};
+     vector<int>array;
 
     int answer = search(array,1);
 
