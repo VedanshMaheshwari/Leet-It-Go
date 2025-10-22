@@ -63,3 +63,56 @@ Node* sortList(Node *head){
 
     return head;
 }
+
+void insertAtTail(Node * &tail, Node * curr){
+    tail->next = curr;
+    tail = curr;
+}
+
+Node* sortList(Node *head){
+    if (head == NULL || head->next == NULL) return head;
+
+    Node *hzero = new Node(-1);
+    Node *tzero = hzero;
+    Node *hone = new Node(-1);
+    Node *tone = hone;
+    Node *htwo = new Node(-1);
+    Node *ttwo = htwo;
+
+    Node *curr = head;
+    
+    while(curr != NULL){
+        if(curr->data == 0){
+            insertAtTail(tzero, curr);
+        } 
+        else if(curr->data == 1){
+            insertAtTail(tone, curr);
+        } 
+        else {
+            insertAtTail(ttwo, curr);
+        }
+        curr = curr->next;
+    }
+
+    // connect 0 ? 1 or 0 ? 2
+    if (hone->next != NULL) {
+        tzero->next = hone->next;
+    } else {
+        tzero->next = htwo->next;
+    }
+
+    // connect 1 ? 2
+    tone->next = htwo->next;
+
+    // terminate list
+    ttwo->next = NULL;
+
+    // update head correctly
+    head = hzero->next;
+
+    delete hzero;
+    delete hone;
+    delete htwo;
+
+    return head;
+}
