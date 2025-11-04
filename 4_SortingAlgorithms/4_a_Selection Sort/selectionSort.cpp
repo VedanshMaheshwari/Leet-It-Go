@@ -19,3 +19,19 @@ void selectionSort(vector<int>& arr, int n){
     }
 }
 
+
+int main() {
+    vector<int> arr = {64, 25, 12, 22, 11};
+    int n = arr.size();
+    
+    selectionSort(arr, n);
+    
+    cout << "Sorted array: \n";
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
+

@@ -13,5 +13,4 @@ bool linearSearchRecursion(int array[] ,int size,int key){
     else{
         bool remainingPart = linearSearchRecursion(array+1,size-1,key);
     }
-
 }
