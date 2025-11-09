@@ -1,48 +1,51 @@
-#include<iostream>
-#include<vector>;
+#include <bits/stdc++.h>
 using namespace std;
 
+class Solution {
+public:
+    int partition(vector<int>& nums, int start, int end) {
+        // deterministic better pivot: middle element
+        int mid = start + (end - start) / 2;
+        swap(nums[start], nums[mid]);
 
-int partition(vector<int> &arr,int start, int end){
-    
-    int pivot = arr[start];
-    int count = 0;
-    for(int i = start+1 ; i <= end; i++){
-        if(arr[i] <= pivot) count++;
+        int pivot = nums[start];
+        int count = 0;
+
+        // count elements strictly less than pivot (start+1 because start holds pivot)
+        for (int i = start + 1; i <= end; ++i) {
+            if (nums[i] < pivot) ++count;
+        }
+
+        int pivotIndex = start + count;
+        swap(nums[start], nums[pivotIndex]);
+
+        // MUST update pivot after moving it to pivotIndex
+        pivot = nums[pivotIndex];
+
+        int i = start, j = end;
+        // move elements so that left side < pivot and right side >= pivot
+        while (i < pivotIndex && j > pivotIndex) {
+            while (i < pivotIndex && nums[i] < pivot) ++i;
+            // IMPORTANT: use >= here to find elements strictly < pivot on the right
+            while (j > pivotIndex && nums[j] >= pivot) --j;
+
+            if (i < pivotIndex && j > pivotIndex) {
+                swap(nums[i++], nums[j--]);
+            }
+        }
+
+        return pivotIndex;
     }
 
-    int pivotIndex = start+count;
-    swap(arr[start], arr[pivotIndex]);
-
-    int i = start, j = end;
-
-    while(i < pivotIndex && j > pivotIndex){
-        while(arr[i] <= pivot){
-            i++;
-        }
-        while(arr[j] > pivot){
-            j--;
-        }
-        if(i < pivotIndex && j > pivotIndex){
-            swap(arr[i++],arr[j--]);
-     
-        }
-    }
-    return pivotIndex;
-}
-
-void qs(vector<int>&arr,int start, int end){
-    if(start >= end){
-        return;
+    void quickS(vector<int>& nums, int start, int end) {
+        if (start >= end) return;
+        int p = partition(nums, start, end);
+        quickS(nums, start, p - 1);
+        quickS(nums, p + 1, end);
     }
 
-    int p = partition(arr,start,end);
-
-    qs(arr,start,p-1);
-    qs(arr,p+1,end);
-}
-
-vector<int> quickSort(vector<int> arr){
-    qs(arr,0,arr.size()-1);
-    return arr;
-}
+    vector<int> sortArray(vector<int>& nums) {
+        quickS(nums, 0, (int)nums.size() - 1);
+        return nums;
+    }
+};

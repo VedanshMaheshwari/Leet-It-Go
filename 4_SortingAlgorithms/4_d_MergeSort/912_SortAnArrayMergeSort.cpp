@@ -70,7 +70,7 @@ public:
         for(int i = 0; i < temp.size(); i++) {
             nums[start + i] = temp[i];
         }
-    }
+    } 
 
     void mergeSort(vector<int> &array, int start, int end){
         if(start >= end) return;
