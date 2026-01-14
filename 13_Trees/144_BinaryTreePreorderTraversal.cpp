@@ -2,6 +2,7 @@
 #include<algorithm>
 #include<vector>
 #include<queue>
+#include<stack>
 using namespace std;
 
 struct TreeNode {
@@ -33,6 +34,34 @@ public:
             return ans;
         }
         preorder(root, ans);
+        return ans;
+    }
+
+    //Iterative Approach
+
+    vector<int> preorderTraversal(TreeNode* root) {    
+        vector<int> ans;
+        
+        if(root == nullptr) {
+            return ans;
+        }
+        stack<TreeNode *>s;
+        s.push(root);
+        
+        while(!s.empty()){
+            root = s.top();
+            s.pop();
+            
+            ans.push_back(root->val);
+            
+            if(root->right != NULL){
+                s.push(root->right);
+            }
+
+            if(root->left != NULL){
+                s.push(root->left);
+            }
+        }
         return ans;
     }
 };
