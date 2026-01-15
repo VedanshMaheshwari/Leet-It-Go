@@ -40,3 +40,28 @@ public:
         return max(combo, max(left, right));
     }
 };
+
+//Optimized approach -> N
+
+class Solution {
+public:
+    int depth(TreeNode *node , int &d){
+
+        if(!node){
+            return 0;
+        }
+
+        int l = depth(node->left, d);
+        int r = depth(node->right, d);
+
+        d = max(d, r+l);
+
+        return 1 + max(l,r);
+    }
+
+    int diameterOfBinaryTree(TreeNode* root) {
+        int d = 0;
+        depth(root, d);
+        return d;
+    }
+};
