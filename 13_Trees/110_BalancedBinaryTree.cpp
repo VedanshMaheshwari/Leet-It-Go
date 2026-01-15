@@ -45,3 +45,31 @@ public:
         return false;
     }
 };
+
+
+//0(N)
+class Solution {
+public:
+    int depth(TreeNode *root){
+        if(root == nullptr){
+            return 0;
+        }
+
+        int l = depth(root->left);
+        int r = depth(root->right);
+
+        if(l == -1 || r == -1){
+            return -1;
+        }
+
+        if(abs(l-r) > 1){
+            return -1;
+        }
+
+        return 1 + max(l,r);
+    }
+
+    bool isBalanced(TreeNode* root) {
+        return depth(root) != -1;
+    }
+};
